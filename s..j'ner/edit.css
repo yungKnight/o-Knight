@@ -25,13 +25,42 @@ h1 {font: 45px serif;
 
 div > p {font: 18px sans-serif;}
 
-figure { display: inline;}
+.wave {
+	animation: wave ease-in-out 5s 3 alternate;
+}
+
+.wave:hover {
+  animation-play-state: paused;
+  cursor: pointer;
+  }
+
+  @keyframes wave {
+  0% { transform: rotate(20deg); }
+  100% { transform: rotate(-20deg); }
+  		}
+
+figure { display: inline-block;}
 
 .grid-container {width: 100%;
 		display: grid;
 		grid-template-columns: auto auto auto;}
 
-figcaption {line-height: 20px;}
+figcaption {line-height: 20px;
+			position: relative;
+			opacity: 0%;
+			margin: 5px;
+			padding: 10px;
+			animation-name: position;
+			animation-duration: 5s;
+			animation-delay: 4s;
+			animation-fill-mode: forwards;}
+
+@keyframes position {
+	0% {opacity: 0;}
+	20% {opacity: 0.25;}
+	50% {opacity: 0.5;}
+	100% {opacity: 1;}
+}
 
 footer {background-color: rgba(0, 0, 0, 0.6);
 			width: 100%;
@@ -41,7 +70,8 @@ footer {background-color: rgba(0, 0, 0, 0.6);
 		display: grid;
 		grid-template-columns: 50% 50%;}
 
-.g-item {border: 2px none;}
+.g-item {border: 2px none;
+			position: relative;}
 
 .footer {font-family: helvetica;
 			font-size: 45px;
@@ -52,3 +82,5 @@ footer {background-color: rgba(0, 0, 0, 0.6);
 			grid-template-columns: 'g-item g-item g-item';
 			margin-top: 25px;
 			padding-left: 10px;}
+
+
